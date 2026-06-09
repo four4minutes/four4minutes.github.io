@@ -1,19 +1,13 @@
 {% include base_path %}
 
+{% assign title = post.title | markdownify | remove: "<p>" | remove: "</p>" %}
+
 <li class="cv-publication-item" itemscope itemtype="http://schema.org/CreativeWork">
+  <h3 class="cv-publication-title" itemprop="headline">
+    <a href="{{ base_path }}{{ post.url }}" rel="permalink">{{ title }}</a>
+  </h3>
+  {% if post.translated_title %}
+    <div class="cv-publication-translation">{{ post.translated_title }}</div>
+  {% endif %}
   <div class="cv-publication-citation">{{ post.citation }}</div>
-  <div class="cv-publication-meta">
-    {% if post.peer_reviewed == true %}
-      <span class="cv-mini-badge">Peer-reviewed</span>
-    {% elsif post.peer_reviewed == false %}
-      <span class="cv-mini-badge">Non-peer-reviewed</span>
-    {% endif %}
-    {% if post.presentation %}
-      <span class="cv-mini-badge">{{ post.presentation }}</span>
-    {% endif %}
-    {% if post.date %}
-      <span class="cv-mini-badge">{{ post.date | date: "%Y" }}</span>
-    {% endif %}
-    <a href="{{ base_path }}{{ post.url }}" rel="permalink">Details</a>
-  </div>
 </li>
