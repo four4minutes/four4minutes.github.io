@@ -1,0 +1,26 @@
+{% assign publication = include.item %}
+
+{% if publication.collection == 'publications' %}
+  {% if publication.translated_title %}
+    <p class="publication-translated-title">{{ publication.translated_title }}</p>
+  {% endif %}
+
+  <p class="publication-badges">
+    {% if publication.category == 'domestic_conferences' %}
+      <span class="publication-badge">Japanese Domestic Conference</span>
+    {% elsif publication.category == 'conferences' %}
+      <span class="publication-badge">International Conference</span>
+    {% endif %}
+    {% if publication.peer_reviewed == true %}
+      <span class="publication-badge">Peer-reviewed</span>
+    {% elsif publication.peer_reviewed == false %}
+      <span class="publication-badge">Non-peer-reviewed</span>
+    {% endif %}
+    {% if publication.presentation %}
+      <span class="publication-badge">{{ publication.presentation }}</span>
+    {% endif %}
+    {% if publication.date %}
+      <span class="publication-badge">{{ publication.date | date: "%Y" }}</span>
+    {% endif %}
+  </p>
+{% endif %}

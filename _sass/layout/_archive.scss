@@ -70,7 +70,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0.25rem;
-  margin-left: 0.35rem;
+  margin: 0 0 0.5rem;
   vertical-align: middle;
 }
 
@@ -83,6 +83,23 @@
   border: 1px solid var(--global-border-color);
   border-radius: 4px;
   white-space: nowrap;
+}
+
+.publication-translated-title {
+  margin-top: -0.25rem;
+  margin-bottom: 0.35rem;
+  color: var(--global-text-color-light);
+  font-size: $type-size-6;
+  line-height: 1.45;
+}
+
+.publication-citation,
+.publication-links {
+  font-size: $type-size-6;
+}
+
+.publication-links {
+  margin-top: -0.5rem;
 }
 
 .archive__item-teaser {

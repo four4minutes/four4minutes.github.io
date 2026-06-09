@@ -57,11 +57,18 @@
   }
 }
 
-.page__footer-copyright {
+.page__footer-meta {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
   font-family: $global-font-family;
   font-size: $type-size-8;
   line-height: 1.2;
   white-space: nowrap;
+
+  @include breakpoint(max-width $small) {
+    white-space: normal;
+  }
 }
 
 .page__footer-follow {

@@ -9,7 +9,7 @@ venue: 'The 40th Annual Conference of the Japanese Society for Artificial Intell
 conferenceurl: 'https://conf.ai-gakkai.or.jp/jsai2026/en/'
 peer_reviewed: false
 presentation: 'Oral'
-citation: 'Younghun Lim and Tatsunori Mori. (2026). &quot;An Evaluation-Based Approach to Automating Schema Design for Generative Knowledge Graph Construction.&quot; <i>The 40th Annual Conference of the Japanese Society for Artificial Intelligence</i>.'
+citation: '<strong>Younghun Lim</strong> and Tatsunori Mori. (2026). &quot;An Evaluation-Based Approach to Automating Schema Design for Generative Knowledge Graph Construction.&quot; <i>The 40th Annual Conference of the Japanese Society for Artificial Intelligence</i>.'
 ---
 
 This presentation studies how schema design for generative knowledge graph construction can be automated through an evaluation-based process. The work focuses on the practical problem that the quality of a generated knowledge graph depends heavily on the schema used to guide extraction, while manually designing and refining such schemas is costly and difficult to scale. The approach treats schema design as an iterative process informed by evaluation results, aiming to make knowledge graph construction more systematic and reusable across domains.

@@ -1,0 +1,14 @@
+{% assign publication = include.item %}
+
+{% if publication.citation %}
+  <p class="publication-citation">{{ publication.citation }}</p>
+{% endif %}
+
+{% assign has_links = false %}
+{% if publication.paperurl or publication.posterurl or publication.slidesurl or publication.bibtexurl or publication.conferenceurl %}
+  {% assign has_links = true %}
+{% endif %}
+
+{% if has_links %}
+  <p class="publication-links">{% assign separator = "" %}{% if publication.paperurl %}{{ separator }}<a href="{{ publication.paperurl }}">Paper</a>{% assign separator = " | " %}{% endif %}{% if publication.posterurl %}{{ separator }}<a href="{{ publication.posterurl }}">Poster</a>{% assign separator = " | " %}{% endif %}{% if publication.slidesurl %}{{ separator }}<a href="{{ publication.slidesurl }}">Slides</a>{% assign separator = " | " %}{% endif %}{% if publication.bibtexurl %}{{ separator }}<a href="{{ publication.bibtexurl }}">BibTeX</a>{% assign separator = " | " %}{% endif %}{% if publication.conferenceurl %}{{ separator }}<a href="{{ publication.conferenceurl }}">Conference Page</a>{% endif %}</p>
+{% endif %}

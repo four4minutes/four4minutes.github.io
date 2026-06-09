@@ -87,7 +87,7 @@ publication_category:
   conferences:
     title: 'Conference Papers'
   domestic_conferences:
-    title: 'Conference Papers (Domestic)'
+    title: 'Conference Papers (Japanese Domestic)'
 
 # Site Settings
 teaser                   :  # filename of teaser fallback teaser image placed in /images/ for social media previews
