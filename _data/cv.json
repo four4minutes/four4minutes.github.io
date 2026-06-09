@@ -22,11 +22,6 @@
         "network": "ORCID",
         "username": "",
         "url": "https://orcid.org/yourorcidurl"
-      },
-      {
-        "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
       }
     ]
   },
