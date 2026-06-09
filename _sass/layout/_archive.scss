@@ -66,6 +66,25 @@
   }
 }
 
+.publication-badges {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.25rem;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.publication-badge {
+  display: inline-block;
+  padding: 0.05rem 0.35rem;
+  color: var(--global-text-color-light);
+  font-size: $type-size-8;
+  line-height: 1.4;
+  border: 1px solid var(--global-border-color);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
 .archive__item-teaser {
   border-radius: $border-radius;
   overflow: hidden;

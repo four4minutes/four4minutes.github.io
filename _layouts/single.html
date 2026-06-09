@@ -36,6 +36,20 @@ layout: default
         
         {% if page.collection == 'teaching' %}
           <p> {{ page.type }}, <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
+        {% elsif page.collection == 'publications' and page.venue and page.date %}
+          <p>
+            Appears in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }}
+            <span class="publication-badges">
+              {% if page.peer_reviewed == true %}
+                <span class="publication-badge">Peer-reviewed</span>
+              {% elsif page.peer_reviewed == false %}
+                <span class="publication-badge">Non-peer-reviewed</span>
+              {% endif %}
+              {% if page.presentation %}
+                <span class="publication-badge">{{ page.presentation }}</span>
+              {% endif %}
+            </span>
+          </p>
         {% elsif page.venue and page.date %}
           <p>Published in <i>{{ page.venue }}</i>, {{ page.date | default: "1900-01-01" | date: "%Y" }} </p>
         {% elsif page.date %}
@@ -55,6 +69,8 @@ layout: default
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% elsif page.citation and page.paperurl %}
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.paperurl }}">Download Paper</a></p>
+        {% elsif page.citation and page.conferenceurl %}
+          <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.conferenceurl }}">Conference Page</a></p>
         {% elsif page.citation and page.slidesurl and page.bibtexurl %}
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}<br /><a href="{{ page.slidesurl }}">Download Slides</a> | <a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% elsif page.citation and page.slidesurl %}
@@ -69,6 +85,8 @@ layout: default
           <p style="font-size: smaller">Recommended citation: {{ page.citation }}</p>
         {% elsif page.slidesurl %}
           <p style="font-size: smaller"><a href="{{ page.slidesurl }}">Download Slides</a></p>
+        {% elsif page.conferenceurl %}
+          <p style="font-size: smaller"><a href="{{ page.conferenceurl }}">Conference Page</a></p>
         {% elsif page.bibtexurl %}
           <p style="font-size: smaller"><a href="{{ page.bibtexurl }}">Download Bibtex</a></p>
         {% endif %}
@@ -83,9 +101,11 @@ layout: default
         {% include page__taxonomy.html %}
       </footer>
 
-      {% if page.share %}{% include social-share.html %}{% endif %}
+      {% unless page.collection == 'publications' %}
+        {% if page.share %}{% include social-share.html %}{% endif %}
 
-      {% include post_pagination.html %}
+        {% include post_pagination.html %}
+      {% endunless %}
     </div>
 
     {% if site.comments.provider and page.comments %}
